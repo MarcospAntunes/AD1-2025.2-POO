@@ -10,12 +10,14 @@ public class Cerimonia {
   private LocalDate data;
   private Categoria categoria;
   private List<Filme> filmes;
+  private int ID;
 
-  public Cerimonia(String nome, LocalDate date, Categoria categoria){
+  public Cerimonia(int ID, String nome, LocalDate date, Categoria categoria){
     this.nome = nome;
     this.data = date;
     this.categoria = categoria;
     this.filmes = new ArrayList<>();
+    this.ID = ID;
   }
 
   public void setFilme(Filme filme) { filmes.add(filme); }

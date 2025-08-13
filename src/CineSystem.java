@@ -16,7 +16,7 @@ public class CineSystem {
     System.out.println("O que deseja fazer hoje?");
     System.out.println("1. Cadastrar produtores, equipes, categorias, filmes e cerimônias;");
     System.out.println("2. Adicionar prêmios aos filmes em cada cerimônia;");
-    System.out.println("3. Verificar a pontuação de cada participante;");
+    System.out.println("3. Verificar a pontuação de cada participante.");
     System.out.println("\n-----------------------------------------------\n");
 
     System.out.print("Digite a opção (1, 2 ou 3): ");
@@ -24,9 +24,29 @@ public class CineSystem {
 
     switch(option) {
       case "1":
-        System.out.println("1");
-        break;
+        System.out.println("\nOk, quais dos três gostaria de cadastrar?");
+        System.out.println("1. Produtor;");
+        System.out.println("2. Equipe;");
+        System.out.println("3. Categoria;");
+        System.out.println("4. Filme;");
+        System.out.println("5. Cerimônia.");
 
+        System.out.print("\nDigite a opção (1, 2 ou 3): ");
+        option = scanner.nextLine();
+
+        if(option == "1") {
+          //
+        } else if(option == "2") {
+          //
+        } else if (option == "3") {
+          //
+        } else if (option == "4") {
+          //
+        } else if(option == "5") {
+          //
+        }
+
+        break;
       case "2":
       System.out.println("2");
         break;

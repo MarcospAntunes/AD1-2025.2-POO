@@ -4,11 +4,13 @@ public class Filme {
   private String[] genero;
   private String titulo;
   private Medalhas medalhas;
+  private int ID;
 
-  public Filme(String titulo, String[] genero) {
+  public Filme(int ID, String titulo, String[] genero) {
     this.titulo = titulo;
     this.genero = genero;
     this.medalhas = new Medalhas();
+    this.ID = ID;
   }
 
   public void ganharOuro() { medalhas.ganharOuro(); }

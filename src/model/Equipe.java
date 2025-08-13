@@ -6,8 +6,12 @@ import java.util.List;
 public class Equipe {
   private int qntdProdutores;
   private List<Produtor> produtores;
+  private int ID;
 
-  public Equipe() { this.produtores = new ArrayList<>(); }
+  public Equipe(int ID) { 
+    this.produtores = new ArrayList<>(); 
+    this.ID = ID;
+  }
 
   public void setProdutores(Produtor produtor) { 
     produtores.add(produtor); 
