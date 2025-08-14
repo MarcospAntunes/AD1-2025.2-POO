@@ -1,6 +1,11 @@
 package src;
 import java.util.Scanner;
 
+import src.model.Equipe;
+import src.model.Produtor;
+import src.service.EquipeService;
+import src.service.ProdutorService;
+
 public class CineSystem {
   private String option;
   private Scanner scanner = new Scanner(System.in);
@@ -34,10 +39,52 @@ public class CineSystem {
         System.out.print("\nDigite a opção (1, 2 ou 3): ");
         option = scanner.nextLine();
 
-        if(option == "1") {
-          //
-        } else if(option == "2") {
-          //
+        if(option.equals("1")) {
+          String nome;
+          int idade;
+          String nacionalidade;
+
+          System.out.println("\nOk, vamos cadastrar o produtor.");
+          
+          System.out.println("Digite o NOME do produtor: ");
+          nome = scanner.nextLine();
+
+          System.out.println("Digite a IDADE do produtor: ");
+          idade = scanner.nextInt();
+          scanner.nextLine();
+
+          System.out.println("Digite a NACIONALIDADE do produtor: ");
+          nacionalidade = scanner.nextLine();
+
+          Produtor produtor = new ProdutorService().cadastrarProdutor(nome, idade, nacionalidade);
+          System.out.println("\nProdutor cadastrado com sucesso!\n" + produtor);
+
+          try {
+            Thread.sleep(1000);
+          } catch (InterruptedException e) {
+            e.printStackTrace();
+          }
+
+          menu();
+
+        } else if(option.equals("2")) {
+          String nome;
+
+          System.out.println("\nOk, vamos cadastrar a equipe.");
+          
+          System.out.println("Digite o NOME da equipe: ");
+          nome = scanner.nextLine();
+
+          Equipe equipe = new EquipeService().cadastrarEquipe(nome);
+          System.out.println("\nEquipe cadastrada com sucesso!\n" + equipe);
+
+          try {
+            Thread.sleep(1000);
+          } catch (InterruptedException e) {
+            e.printStackTrace();
+          }
+
+          menu();
         } else if (option == "3") {
           //
         } else if (option == "4") {

@@ -17,4 +17,11 @@ public class Produtor {
   public String getNacionalidade() { return nacionalidade; }
   public String getNome() { return nome; }
   public int getID() { return ID; }
+
+  @Override
+  public String toString() {
+    return  "\nNome: " + nome + ";" +
+            "\nIdade: " + idade + ";" +
+            "\nNacionalidade: " + nacionalidade + ".";
+  }
 }
