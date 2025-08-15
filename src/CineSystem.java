@@ -21,7 +21,8 @@ public class CineSystem {
     System.out.println("O que deseja fazer hoje?");
     System.out.println("1. Cadastrar produtores, equipes, categorias, filmes e cerimônias;");
     System.out.println("2. Adicionar prêmios aos filmes em cada cerimônia;");
-    System.out.println("3. Verificar a pontuação de cada participante.");
+    System.out.println("3. Adicionar produtor em uma equipe;");
+    System.out.println("4. Verificar a pontuação de cada participante.");
     System.out.println("\n-----------------------------------------------\n");
 
     System.out.print("Digite a opção (1, 2 ou 3): ");
