@@ -14,6 +14,7 @@ public class Equipe {
   }
  
   public int getID() { return ID; }
+  public List<Produtor> getProdutores() { return produtores; }
 
   @Override
   public String toString() {
