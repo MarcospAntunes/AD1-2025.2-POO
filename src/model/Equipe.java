@@ -1,35 +1,24 @@
 package src.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Equipe {
   private String nome;
-  private int qntdProdutores;
-  private List<Produtor> produtores;
   private int ID;
+  private List<Produtor> produtores;
 
-  public Equipe(int ID, String nome) { 
-    this.produtores = new ArrayList<>(); 
+  public Equipe(int ID, String nome, List<Produtor> produtores) { 
     this.ID = ID;
     this.nome = nome;
+    this.produtores = produtores;
   }
-
-  public void setProdutores(Produtor produtor) { 
-    produtores.add(produtor); 
-    contarProdutores();
-  }
-
-  public List<Produtor> getProdutores() { return produtores; }
-  public int getQntdProdutores() { return qntdProdutores; }
+ 
   public int getID() { return ID; }
-
-  private void contarProdutores() { qntdProdutores = produtores.size(); }
 
   @Override
   public String toString() {
     return  "\nIdentificador: " + ID + ";" +
-            "\nIdade: " + nome + ";" +
-            "\nProdutores na equipe: " + getQntdProdutores() + ".";
+            "\nNome da Equipe: " + nome + ";" +
+            "\nProdutores na equipe: " + produtores.size() + ".";
   }
 }
