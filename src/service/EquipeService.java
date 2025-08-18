@@ -11,7 +11,7 @@ public class EquipeService {
   private List<Produtor> produtores = new ArrayList<>();
 
  public Equipe cadastrarEquipe(String nome) {
-  List<Produtor> novaListaProdutores = new ArrayList<>(); // lista independente
+  List<Produtor> novaListaProdutores = new ArrayList<>();
   Equipe equipe = new Equipe(contador++, nome, novaListaProdutores);
   equipes.add(equipe);
   return equipe;
