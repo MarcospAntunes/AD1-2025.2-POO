@@ -1,8 +1,11 @@
 package src;
 import java.util.Scanner;
 
+import src.enums.TipoCategoria;
+import src.model.Categoria;
 import src.model.Equipe;
 import src.model.Produtor;
+import src.service.CategoriaService;
 import src.service.EquipeService;
 import src.service.ProdutorService;
 
@@ -64,6 +67,8 @@ public class CineSystem {
             Thread.sleep(1000);
           } catch (InterruptedException e) {
             e.printStackTrace();
+            System.err.print("Atenção, erro castratófico.");
+            menu();
           }
 
           menu();
@@ -83,11 +88,45 @@ public class CineSystem {
             Thread.sleep(1000);
           } catch (InterruptedException e) {
             e.printStackTrace();
+            System.err.print("Atenção, erro castratófico.");
+            menu();
           }
 
           menu();
         } else if (option == "3") {
-          //
+          try {
+            String nome;
+            TipoCategoria tipoCategoria;
+            System.out.println("\nOk, vamos cadastrar a categoria.");
+            
+            System.out.println("Digite o NOME da categoria: ");
+            nome = scanner.nextLine();
+
+            System.out.println("Escolha o TIPO da categoria: ");
+            System.out.print("1. INDIVIDUAL");
+            System.out.print("2. EQUIPE");
+            if(scanner.nextLine() == "1") {
+              tipoCategoria = TipoCategoria.INDIVIDUAL;
+            } else if(scanner.nextLine() == "2") {
+              tipoCategoria = TipoCategoria.EQUIPE;
+            } else {
+              throw new IllegalArgumentException("Tipo de categoria incorreto!");
+            }
+
+            Categoria categoria = new CategoriaService().cadastrarCategoria(nome, tipoCategoria);
+            System.out.println("\nCategoria cadastrada com sucesso!\n" + categoria);
+
+            try {
+              Thread.sleep(1000);
+            } catch (InterruptedException e) {
+              e.printStackTrace();
+              System.err.print("Atenção, erro castratófico.");
+              menu();
+            }
+          } catch (IllegalArgumentException e) {
+            System.err.println(e);
+            menu();
+          }
         } else if (option == "4") {
           //
         } else if(option == "5") {

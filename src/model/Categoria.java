@@ -14,4 +14,12 @@ public class Categoria {
 
   public String getNome() { return nome; }
   public TipoCategoria getTipo() { return tipo; }
+  public int getID() { return ID; }
+
+  @Override
+  public String toString() {
+    return  "\nIdentificador: " + ID + ";" +
+            "\nNome da Categoria: " + nome + ";" +
+            "\nTipo da Categoria: " + tipo + ".";
+  }
 }
