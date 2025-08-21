@@ -1,7 +1,6 @@
 package src.model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import src.enums.TipoMedalha;
 
@@ -12,11 +11,11 @@ public class Cerimonia {
   private List<Filme> filmes;
   private int ID;
 
-  public Cerimonia(int ID, String nome, LocalDate date, Categoria categoria){
+  public Cerimonia(int ID, String nome, LocalDate date, Categoria categoria, List<Filme> filmes){
     this.nome = nome;
     this.data = date;
     this.categoria = categoria;
-    this.filmes = new ArrayList<>();
+    this.filmes = filmes;
     this.ID = ID;
   }
 
@@ -27,6 +26,7 @@ public class Cerimonia {
   public LocalDate getData() { return data; }
   public List<Filme> getFilmes() { return filmes; }
   public String getNome() { return nome; }
+  public int getID() { return ID; }
 
 
   public void definirVencendor(int idFilme, TipoMedalha medalha) {

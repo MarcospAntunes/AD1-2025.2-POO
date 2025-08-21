@@ -1,14 +1,17 @@
 package src;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import src.enums.TipoCategoria;
 import src.model.Categoria;
+import src.model.Cerimonia;
 import src.model.Equipe;
 import src.model.Produtor;
 import src.model.Filme;
 import src.service.CategoriaService;
+import src.service.CerimoniaService;
 import src.service.EquipeService;
 import src.service.FilmeService;
 import src.service.ProdutorService;
@@ -160,7 +163,31 @@ public class CineSystem {
             menu();
           }
         } else if(option == "5") {
-          //
+          String nome;
+          LocalDate date = LocalDate.now();
+          int ID;
+          System.out.println("\nOk, vamos cadastrar a cerimônia.");
+          
+          System.out.println("Digite o NOME da cerimônia: ");
+          nome = scanner.nextLine();
+
+          System.out.println("Digite o ID da Categoria: ");
+          ID = scanner.nextInt();
+          scanner.nextLine();
+          Categoria categoria =  new CategoriaService().getCategoria(ID);
+
+          Cerimonia cerimonia = new CerimoniaService().cadastrarCerimonia(nome, date, categoria);
+          System.out.println("\nCerimônia cadastrada com sucesso!\n" + cerimonia);
+
+          try {
+            Thread.sleep(1000);
+          } catch (InterruptedException e) {
+            e.printStackTrace();
+            System.err.print("Atenção, erro castratófico.");
+            menu();
+          }
+
+          menu();
         }
 
         break;

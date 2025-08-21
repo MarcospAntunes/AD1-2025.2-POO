@@ -5,7 +5,6 @@ import java.util.List;
 
 import src.enums.TipoCategoria;
 import src.model.Categoria;
-import src.model.Produtor;
 
 public class CategoriaService {
   private static int contador = 0;
@@ -17,6 +16,9 @@ public class CategoriaService {
   return categoria;
   }
 
-  public boolean removerEquipe(int ID) { return categorias.removeIf(categoria -> categoria.getID() == ID); }
+  public boolean removerCategoria(int ID) { return categorias.removeIf(categoria -> categoria.getID() == ID); }
   public List<Categoria> listarCategorias() { return new ArrayList<>(categorias); }
+  public Categoria getCategoria(int ID) {
+    return categorias.get(ID);
+  }
 }
