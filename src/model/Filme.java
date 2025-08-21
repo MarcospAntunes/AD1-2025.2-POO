@@ -1,12 +1,15 @@
 package src.model;
 
+import java.util.List;
+
 public class Filme {
-  private String[] genero;
+  private List<String> genero;
   private String titulo;
   private Medalhas medalhas;
   private int ID;
+  private Equipe equipe;
 
-  public Filme(int ID, String titulo, String[] genero) {
+  public Filme(int ID, String titulo, List<String> genero) {
     this.titulo = titulo;
     this.genero = genero;
     this.medalhas = new Medalhas();
@@ -18,7 +21,17 @@ public class Filme {
   public void ganharBronze() { medalhas.ganharBronze(); }
 
   public String getTitulo() { return titulo; }
-  public String[] getGenero() { return genero; }
+  public List<String> getGenero() { return genero; }
   public Medalhas getMedalhas() { return medalhas; }
+  public int getID() { return ID; }
+  public Equipe getEquipe() { return equipe;}
 
+  public void setEquipe(Equipe equipe) { this.equipe = equipe; }
+
+  @Override
+  public String toString() {
+    return  "\nIdentificador: " + ID + ";" +
+            "\nNome do filme: " + titulo + ";" +
+            "\nEquipe: " + equipe.getProdutores() + ".";
+  }
 }

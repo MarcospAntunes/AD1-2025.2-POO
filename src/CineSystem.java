@@ -1,12 +1,16 @@
 package src;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import src.enums.TipoCategoria;
 import src.model.Categoria;
 import src.model.Equipe;
 import src.model.Produtor;
+import src.model.Filme;
 import src.service.CategoriaService;
 import src.service.EquipeService;
+import src.service.FilmeService;
 import src.service.ProdutorService;
 
 public class CineSystem {
@@ -128,7 +132,33 @@ public class CineSystem {
             menu();
           }
         } else if (option == "4") {
-          //
+          try {
+            String nome;
+            List<String> genero = new ArrayList<String>();
+            System.out.println("\nOk, vamos cadastrar o filme.");
+            
+            System.out.println("Digite o NOME da filme: ");
+            nome = scanner.nextLine();
+
+            System.out.println("Digite o GÊNERO do filme: ");
+            while (scanner.nextLine().trim() != "") {
+              genero.add(scanner.nextLine());
+            }
+
+            Filme filme = new FilmeService().cadastrarFilme(nome, genero);
+            System.out.println("\nFilme cadastrado com sucesso!\n" + filme);
+
+            try {
+              Thread.sleep(1000);
+            } catch (InterruptedException e) {
+              e.printStackTrace();
+              System.err.print("Atenção, erro castratófico.");
+              menu();
+            }
+          } catch (IllegalArgumentException e) {
+            System.err.println(e);
+            menu();
+          }
         } else if(option == "5") {
           //
         }
