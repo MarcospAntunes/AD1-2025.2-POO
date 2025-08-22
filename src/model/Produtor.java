@@ -20,8 +20,10 @@ public class Produtor {
 
   @Override
   public String toString() {
-    return  "\nNome: " + nome + ";" +
+    return  "\nIdentificador: " + ID + ";" +
+            "\nNome: " + nome + ";" +
             "\nIdade: " + idade + ";" +
             "\nNacionalidade: " + nacionalidade + ".";
   }
+
 }

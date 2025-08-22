@@ -2,7 +2,6 @@ package src.model;
 
 import java.time.LocalDate;
 import java.util.List;
-import src.enums.TipoMedalha;
 
 public class Cerimonia {
   private String nome;
@@ -28,24 +27,22 @@ public class Cerimonia {
   public String getNome() { return nome; }
   public int getID() { return ID; }
 
-
-  public void definirVencendor(int idFilme, TipoMedalha medalha) {
-    switch(medalha) {
-      case OURO:
-        filmes.get(idFilme).ganharOuro();
-        break;
-
-      case PRATA:
-        filmes.get(idFilme).ganharPrata();
-        break;
-      case BRONZE:
-        filmes.get(idFilme).ganharBronze();
-        break;
-      
-      default:
-        System.out.println("Medalha indefinida ou incorreta!");
-        break;
-    }
-    
+  public void registrarPremio(Filme filme, int posicao) {
+  if (!filmes.contains(filme)) {
+    throw new IllegalArgumentException("Filme não participa desta cerimônia.");
   }
+  switch(posicao) {
+    case 1:
+      filme.ganharOuro();
+      break;
+    case 2:
+      filme.ganharPrata();
+      break;
+    case 3:
+      filme.ganharBronze();
+      break;
+    default:
+      throw new IllegalArgumentException("Posição inválida (1=Ouro, 2=Prata, 3=Bronze)");
+  }
+}
 }

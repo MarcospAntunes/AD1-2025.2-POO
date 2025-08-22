@@ -8,17 +8,19 @@ import src.model.Categoria;
 
 public class CategoriaService {
   private static int contador = 0;
-  private List<Categoria> categorias;
+  private final List<Categoria> categorias = new ArrayList<>();
 
- public Categoria cadastrarCategoria(String nome, TipoCategoria tipo) {
-  Categoria categoria = new Categoria(contador++, nome, tipo);
-  categorias.add(categoria);
-  return categoria;
+  public Categoria cadastrarCategoria(String nome, TipoCategoria tipo) {
+    Categoria categoria = new Categoria(contador++, nome, tipo);
+    this.categorias.add(categoria);
+    return categoria;
   }
 
   public boolean removerCategoria(int ID) { return categorias.removeIf(categoria -> categoria.getID() == ID); }
   public List<Categoria> listarCategorias() { return new ArrayList<>(categorias); }
+
   public Categoria getCategoria(int ID) {
-    return categorias.get(ID);
+    for (Categoria c : categorias) if (c.getID() == ID) return c;
+    return null;
   }
 }

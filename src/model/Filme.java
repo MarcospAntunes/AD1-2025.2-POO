@@ -8,6 +8,7 @@ public class Filme {
   private Medalhas medalhas;
   private int ID;
   private Equipe equipe;
+  private Produtor produtor;
 
   public Filme(int ID, String titulo, List<String> genero) {
     this.titulo = titulo;
@@ -24,14 +25,20 @@ public class Filme {
   public List<String> getGenero() { return genero; }
   public Medalhas getMedalhas() { return medalhas; }
   public int getID() { return ID; }
-  public Equipe getEquipe() { return equipe;}
+  public Equipe getEquipe() { return equipe; }
+  public Produtor getProdutor() { return produtor; }
 
   public void setEquipe(Equipe equipe) { this.equipe = equipe; }
+  public void setProdutor(Produtor produtor) { this.produtor = produtor; }
+
+  public int getPontos() { return medalhas.getPontos(); }
 
   @Override
   public String toString() {
     return  "\nIdentificador: " + ID + ";" +
             "\nNome do filme: " + titulo + ";" +
-            "\nEquipe: " + equipe.getProdutores() + ".";
+            "\nEquipe: " + (equipe != null ? equipe.getNome() : "Nenhuma") + ";" +
+            "\nProdutor: " + (produtor != null ? produtor.getNome() : "Nenhum") + ";" +
+            "\nMedalhas: " + medalhas + ".";
   }
 }

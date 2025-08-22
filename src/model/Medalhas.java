@@ -18,4 +18,13 @@ public class Medalhas {
   public int getOuro() { return ouro; }
   public int getPrata() { return prata; }
   public int getBronze() { return bronze; }
+
+  public int getPontos() {
+    return (ouro * 10) + (prata * 8) + (bronze * 6);
+  }
+
+  @Override
+  public String toString() {
+    return "Ouro: " + ouro + " | Prata: " + prata + " | Bronze: " + bronze + " | Pontos: " + getPontos();
+  }
 }

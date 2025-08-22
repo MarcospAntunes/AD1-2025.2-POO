@@ -7,14 +7,15 @@ public class Equipe {
   private int ID;
   private List<Produtor> produtores;
 
-  public Equipe(int ID, String nome, List<Produtor> produtores) { 
+  public Equipe(int ID, String nome, List<Produtor> produtores) {
     this.ID = ID;
     this.nome = nome;
     this.produtores = produtores;
   }
- 
+
   public int getID() { return ID; }
   public List<Produtor> getProdutores() { return produtores; }
+  public String getNome() { return nome; }
 
   @Override
   public String toString() {
