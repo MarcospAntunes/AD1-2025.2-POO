@@ -36,7 +36,11 @@ public class CineSystem {
   }
 
   private void pausar() {
-    try { Thread.sleep(700); } catch (InterruptedException e) { }
+    try { 
+      Thread.sleep(700); 
+    } catch (InterruptedException e) { 
+      System.out.println("Error: Erro catastrófico"); 
+    }
   }
 
   private void menu() {
